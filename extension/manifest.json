@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "SpaceMouse für Tinkercad (Mac)",
+  "version": "1.0.0",
+  "description": "Steuert die Tinkercad-Kamera mit einer 3Dconnexion SpaceMouse über den 3Dconnexion-Treiber (3DxWare).",
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "host_permissions": [
+    "https://127.51.68.120/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.tinkercad.com/*"
+      ],
+      "js": [
+        "main.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://*.tinkercad.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "debugger"
+  ]
+}
